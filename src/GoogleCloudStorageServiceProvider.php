@@ -32,7 +32,7 @@ class GoogleCloudStorageServiceProvider extends ServiceProvider
     {
         $bucket = $client->bucket(Arr::get($config, 'bucket'));
 
-        $pathPrefix = Arr::get($config, 'root');
+        $pathPrefix = Arr::get($config, 'prefix') ?? Arr::get($config, 'root');
         $visibility = Arr::get($config, 'visibility');
         $defaultVisibility = in_array(
             $visibility,
